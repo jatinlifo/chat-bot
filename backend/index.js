@@ -10,17 +10,19 @@ const port = process.env.PORT || 3000
 
 
 connectDB()
-.then(() => {
-    console.log("Conneted to MongoDB")
-})
-.catch((error) => {
-    console.log(`MongoDB connection FAILED !!!!! ${error}`)
-})
+    .then(() => {
+        console.log("Conneted to MongoDB")
+    })
+    .catch((error) => {
+        console.log(`MongoDB connection FAILED !!!!! ${error}`)
+    })
 
 app.use(express.json());
 app.use(cors({
-    origin: [" http://localhost:3000/bot/v1/message",
-        "https://chat-bot-weld-mu-96.vercel.app/"]
+    origin: ["http://localhost:5173/",
+        "https://chat-bot-y426.vercel.app/"],
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
 }));
 app.use('/bot/v1', chatbotRoutes)
 
@@ -31,7 +33,7 @@ app.get('/', (req, res) => {
     })
 })
 
-app.listen(port, () => { 
+app.listen(port, () => {
     console.log(`Server is Running on Port ${port}`)
 })
 
