@@ -2,7 +2,14 @@ import React, { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 import { AiOutlineUser } from 'react-icons/ai';
 
+
+const url = import.meta.env.VITE_BACKEND_URL; 
+
+
+
 function Bot() {
+
+    
     const [messages, setMessages] = useState([])
     const [input, setInput] = useState("")
     const [loading, setLoading] = useState(false)
@@ -22,7 +29,7 @@ function Bot() {
         setInput("");
         setLoading(true);
         try {
-            const response = await axios.post("http://localhost:3000/bot/v1/message", {
+            const response = await axios.post(url, {
                 text: userMessage
             });
             console.log("Backend response:", response.data);
