@@ -18,7 +18,9 @@ connectDB()
 })
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: ["https://chat-bot-weld-mu-96.vercel.app/"]
+}));
 app.use('/bot/v1', chatbotRoutes)
 
 app.get('/', (req, res) => {
