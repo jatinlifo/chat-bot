@@ -42,7 +42,7 @@ const Message = async (req, res) => {
                     return item.reply;
                 }
             }
-            return "Sorry, I didn't understand that."
+            return null;
         }
 
         //Google search via SerpAPi
@@ -58,7 +58,17 @@ const Message = async (req, res) => {
         const results = response.data.organic_results || [];
         //response.data => pura JSON jo API sa aya
         //organic_results => normal google ke search result without paid ads
-        const botResponse =  getMyBotResponse(text) || results[0]?.snippet;
+        let botResponse =  getMyBotResponse(text);
+
+        //agar trained response nahi mila
+        if (!botResponse) {
+            botResponse = results[0]?.snippet;
+        }
+
+        //agar snippet bhi nahi mila
+        if (!botResponse) {
+            botResponse = "Sorry, I didn't understand that."
+        }
         // snippet means short summary ya result
 
 
