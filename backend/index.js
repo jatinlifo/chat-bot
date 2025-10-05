@@ -20,6 +20,14 @@ connectDB()
 app.use(express.json());
 app.use(cors());
 app.use('/bot/v1', chatbotRoutes)
+
+app.get('/', (req, res) => {
+    res.send({
+        activeStatus: true,
+        error: false,
+    })
+})
+
 app.listen(port, () => { 
     console.log(`Server is Running on Port ${port}`)
 })
