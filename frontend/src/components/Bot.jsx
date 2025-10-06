@@ -25,7 +25,7 @@ function Bot() {
         if (!input.trim()) return;
         //pehla user ka message chat me add kiya
         setMessages((prev) => [...prev, {text: input, sender: "user"}]);
-        const userMessage = input;
+        const userMessage = input; 
         setInput("");
         setLoading(true);
         try {
