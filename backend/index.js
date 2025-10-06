@@ -18,12 +18,7 @@ connectDB()
     })
 
 app.use(express.json());
-app.use(cors({
-    origin: ["http://localhost:5173/",
-        "https://chat-bot-y426.vercel.app/"],
-    methods: ["GET", "POST", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"]
-}));
+app.use(cors());
 app.use('/bot/v1', chatbotRoutes)
 
 app.get('/', (req, res) => {
