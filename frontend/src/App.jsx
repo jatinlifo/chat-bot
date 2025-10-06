@@ -4,7 +4,7 @@ import Bot from './components/Bot'
 function App() {
   return (
     <div>
-      <Bot />
+      <Bot /> 
     </div>
   )
 }
