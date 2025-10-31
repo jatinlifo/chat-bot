@@ -3,7 +3,7 @@ import axios from 'axios'
 import { AiOutlineUser } from 'react-icons/ai';
 
 
-// const url = https://chatbot-backend-iota-teal.vercel.app/;
+const url = import.meta.env.VITE_BACKEND_URL
 
 
 
@@ -29,7 +29,7 @@ function Bot() {
         setInput("");
         setLoading(true);
         try {
-            const response = await axios.post("https://chatbot-backend-iota-teal.vercel.app/bot/v1/message", {
+            const response = await axios.post("https://chat-bot-u29a.onrender.com", {
                 text: userMessage
             });
             console.log("Backend response:", response.data);
