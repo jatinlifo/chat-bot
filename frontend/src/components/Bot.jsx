@@ -29,7 +29,7 @@ function Bot() {
         setInput("");
         setLoading(true);
         try {
-            const response = await axios.post("https://chat-bot-u29a.onrender.com", {
+            const response = await axios.post(url, {
                 text: userMessage
             });
             console.log("Backend response:", response.data);
