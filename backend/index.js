@@ -19,6 +19,7 @@ connectDB()
 
 app.use(express.json());
 app.use(cors({origin: process.env.NODE_ENV == "production" ? "https://chat-bot-1-23sy.onrender.com" : "http://localhost:5173/"}));
+// app.use(cors());
 // console.log("All data .env", process.env)
 app.use('/bot/v1', chatbotRoutes)
 

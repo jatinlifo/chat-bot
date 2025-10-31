@@ -5,6 +5,8 @@ import { AiOutlineUser } from 'react-icons/ai';
 
 const url = import.meta.env.VITE_BACKEND_URL
 
+console.log("Backend url ", url);
+
 
 
 function Bot() {
@@ -64,7 +66,7 @@ function Bot() {
                     
                     {messages.length === 0 && (
                         <h1 className='flex justify-center text-white  mt-40 text-4xl font-bold text-center font-rubik'>
-                           Hii 👋, How can help you
+                           Hii 👋, How can i help you
                         </h1>
                     )}
                     {messages.map((msg, index) => (
